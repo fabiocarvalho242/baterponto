@@ -16,23 +16,23 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .csrf().disable()
-            .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/", "/login").permitAll()
-                .anyRequest().authenticated()
-            )
-            .formLogin(form -> form
-                .loginPage("/")
-                .loginProcessingUrl("/login")
-                .defaultSuccessUrl("/dashboard", true)
-                .failureUrl("/?error=true")
-                .permitAll()
-            )
-            .logout(logout -> logout
-                .logoutUrl("/logout")
-                .logoutSuccessUrl("/")
-                .permitAll()
-            );
+                .csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(auth -> auth
+                                .requestMatchers("/", "/login").permitAll()
+                                .anyRequest().authenticated()
+                )
+                .formLogin(form -> form
+                                .loginPage("/")
+                                .loginProcessingUrl("/login")
+                                .defaultSuccessUrl("/dashboard", true)
+                                .failureUrl("/?error=true")
+                                .permitAll()
+                )
+                .logout(logout -> logout
+                                .logoutUrl("/logout")
+                                .logoutSuccessUrl("/")
+                                .permitAll()
+                );
         return http.build();
     }
 
