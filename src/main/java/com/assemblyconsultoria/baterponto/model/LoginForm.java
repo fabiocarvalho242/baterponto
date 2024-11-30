@@ -1,4 +1,4 @@
-package com.assemblyconsultoria.baterponto.controller.model;
+package com.assemblyconsultoria.baterponto.model;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
